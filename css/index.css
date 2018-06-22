@@ -189,38 +189,6 @@ a {
     }
 }
 
-
-/* .wrapper {
-    overflow: hidden;
-    background-color: #f2f2f2;
-}
-
-.wrapper-border {
-    border-radius: 8px;
-}
-
-#top {
-    top: 90px;
-} */
-
-/* .title {
-    text-align: center;
-} */
-
-/* .title > h1 {
-    font-weight: 700;
-    font-size: 3rem;
-    color: #fff;
-} */
-
-/* .title > h1 > strong {
-    color: #dd579a
-}
-
-.title-padding-top {
-    padding-top: 20px;
-} */
-
 .title-text {
     font-family: 'Righteous', cursive;
     font-weight: 800;
