@@ -40,10 +40,8 @@ li:hover {
     font-size: 1.75rem;
 }
 
-.flex-item-1-user-profile > a {
+.flex-item-1-user-profile>a {
     font-size: 0.75rem;
-    background-color: #dd579a;
-    width: 55px;
     color: #fff;
     cursor: pointer;
     margin-top: -55px;
@@ -99,12 +97,27 @@ li:hover {
     color: #ffffff;
 }
 
-.flex-item-3-messages>.flex-item-3-messages-sent {
+.flex-item-3-messages>div>.flex-item-3-messages-sent {
     background-color: #dd579a;
     width: 430px;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
+}
+
+.retractbtn {
+    width: 80px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #be4b85;
+    color: #fff;
+    float: right;
+    margin-right: 20px;
+}
+
+.retractbtn:hover {
+    background-color: #753857;
 }
 
 .flex-item-3-messages>.flex-item-3-messages-received {
