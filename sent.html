@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Inbox | EPIC MAIL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header title">
+    </header>
+    <div class="flex-container">
+        <div class="flex-item-1">
+            <div class="flex-item-1-user-profile">
+                <p>John Doe</p>
+                <a id="passwordModalBtn">Reset Password</a>
+            </div>
+            <nav class="links">
+                <ul>
+                    <a id="myBtn">
+                        <li>Compose</li>
+                    </a>
+                    <a href="inbox.html">
+                        <li>Inbox</li>
+                    </a>
+                    <a href="sent.html">
+                        <li>Sent</li>
+                    </a>
+                    <a href="drafts.html">
+                        <li>Drafts</li>
+                    </a>
+                    <a href="Group.html">
+                        <li>Groups</li>
+                    </a>
+                    <a href="index.html">
+                        <li>Logout</li>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+        <div class="flex-item-2">
+            <div class="flex-item-2-msg-header">
+                <p>Sender Lists</p>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <p>Sender</p>
+                </a>
+            </div>
+        </div>
+        <div class="flex-item-3">
+            <div class="flex-item-3-messages">
+                <div class="flex-item-3-messages-received">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, aliquam voluptatem nulla,</p>
+                </div>
+                <div class="flex-item-3-messages-sent">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="">
+                <h4>Compose Message</h4>
+                <input type="text" name="" id="" placeholder="Recipient Email or Group Name">
+                <textarea name="" id="" cols="38" rows="10" placeholder="Type your message here"></textarea>
+                <button class="compose-modal-button" type="submit">Save as draft</button>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="myPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="">
+                <h4>Reset Password</h4>
+                <input type="password" name="" id="" placeholder="Current Password">
+                <input type="password" name="" id="" placeholder="New Password">
+                <input type="password" name="" id="" placeholder="Repeat New Password">
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/modal.js"></script>
+</body>
+
+</html>
