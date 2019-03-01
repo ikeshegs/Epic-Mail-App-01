@@ -1,0 +1,139 @@
+/***********Global Styles***********/
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: #393f4d;
+}
+
+a {
+    color: #dd579a;
+    text-decoration: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 700px 500px;
+    grid-gap: 50px;
+}
+
+.wrapper {
+    margin: auto;
+    padding: 0 10px;
+    background-color: #f2f2f2;
+    width: 400px;
+}
+
+.wrapper-border {
+    border-radius: 8px;
+}
+
+.wrapper-width {
+    max-width: 800px;
+}
+
+.wrapper-margin-from-top {
+    position: relative;
+    top: 100px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title > h1 {
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.title > h1 > strong {
+    color: #dd579a
+}
+
+.title-padding-top {
+    padding-top: 40px;
+}
+
+.title-text {
+    font-family: 'Righteous', cursive;
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 15px;
+}
+
+.form-padding-bottom {
+    padding-bottom: 15px;
+}
+
+/*****FORM STYLE*****/
+form {
+    font-size: 0.75rem;
+}
+
+.form-style {
+    padding-left: 20px;
+}
+
+.form-checkbox {
+    padding: 0;
+}
+
+.form-new-account-div {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.border-outline:focus {
+    border: 2px solid #c75d92;
+}
+
+input[type=email], [type=password], [type=text], [type=date], [type=tel] {
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+    margin-top: 10px;
+    padding: 12px 20px;
+    outline: none;
+}
+
+
+input[type=radio] {
+    display: inline-block;
+    background-color: #dd579a;
+    padding: 0;
+    outline: none;
+    margin: 10px 0;
+    width: 2em;
+    font-size: 1em;
+}
+
+input[type=radio]:checked {
+    color: #dd579a;
+    display: block;
+    left: 0;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    width: 40%;
+    background-color: #dd579a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 14px 0;
+    margin-top: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: #c75d92;
+}
+
+input[type=checkbox] {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
