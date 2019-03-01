@@ -40,8 +40,10 @@ li:hover {
     font-size: 1.75rem;
 }
 
-.flex-item-1-user-profile>a {
+.flex-item-1-user-profile > a {
     font-size: 0.75rem;
+    background-color: #dd579a;
+    width: 55px;
     color: #fff;
     cursor: pointer;
     margin-top: -55px;
