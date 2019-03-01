@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EPIC MAIL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto+Mono" rel="stylesheet">
+    </head>
+    <body onload="changeText()">
+        <div class="container wrapper-margin-from-top">
+            <div class="title title-padding-top title-text">
+                <h1><strong>EPIC MAIL</strong></h1>
+                <h1 id="text-change"></h1>
+            </div>
+            <div class="wrapper wrapper-border">
+                <h3 class="title">User Login</h3>
+                <form class="form-style" action="inbox.html" method="POST">
+                    <input class="border-outline" type="email" name="email" id="email" placeholder="Email Address" required><br>
+
+                    <input class="border-outline" type="password" name="password" id="passwrd" placeholder="Password" required><br>
+                    
+                    <p><input type="checkbox" id="" name="">Remember Password</p>
+                    
+                    <input type="submit" value="Signin">
+                    <p><a href="#">Forget Password?</a></p>
+                </form>
+                <div class="form-style form-new-account-div form-padding-bottom">
+                    <form action="signup.html">
+                        <p>Don't have an account?</p>
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        <script src="assets/scripts/script.js"></script>
+    </body>
+</html>
