@@ -74,6 +74,15 @@ li:hover {
     color: #000;
 }
 
+.flex-item-2-msg-list>button {
+    width: 70px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dd579a;
+    color: #fff;
+}
+
 .flex-item-2-msg-list:hover {
     background-color: #c2bbbb;
 }
@@ -138,6 +147,10 @@ ul {
 ul li {
     padding: 20px;
     border-bottom: 2px solid #000;
+}
+
+#myBtn {
+    cursor: pointer;
 }
 
 /* The Modal (background) */
