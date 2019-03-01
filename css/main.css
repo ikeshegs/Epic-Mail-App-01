@@ -110,13 +110,6 @@ input[type=radio] {
     font-size: 1em;
 }
 
-input[type=radio]:checked {
-    color: #dd579a;
-    display: block;
-    left: 0;
-    cursor: pointer;
-}
-
 input[type=submit] {
     width: 40%;
     background-color: #dd579a;
