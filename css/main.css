@@ -36,7 +36,7 @@ a {
 
 .wrapper-margin-from-top {
     position: relative;
-    top: 100px;
+    top: 50px;
 }
 
 .title {
@@ -53,7 +53,7 @@ a {
 }
 
 .title-padding-top {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .title-text {
