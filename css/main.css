@@ -11,6 +11,7 @@ body {
 a {
     color: #dd579a;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .container {
@@ -64,7 +65,7 @@ a {
 }
 
 .form-padding-bottom {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 /*****FORM STYLE*****/
@@ -108,7 +109,9 @@ input[type=radio] {
     margin: 10px 0;
     width: 2em;
     font-size: 1em;
+    cursor: pointer;
 }
+
 
 input[type=submit] {
     width: 40%;
