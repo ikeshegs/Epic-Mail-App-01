@@ -1,0 +1,62 @@
+.flex-item-3-messages {
+    color: #000;
+}
+
+select {
+    width: 150px;
+    padding: 12px;
+    border-radius: 4px;
+    color: #dd579a;
+    outline: none;
+    font-size: 1rem;
+}
+
+.subnav {
+    float: left;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    list-style-type: none;
+}
+  
+.subnav .subnavbtn {
+    font-size: 1rem;  
+    border: none;
+    outline: none;
+    color: #dd579a;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: #495369;
+}
+
+.subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #495369;
+    width: 250px;
+    z-index: 1;
+}
+
+.subnav-content a {
+    float: left;
+    color: #dd579a;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px;
+}
+
+.subnav-content a:hover {
+    background-color: #393f4d;
+    color: black;
+}
+
+.subnav:hover .subnav-content {
+    display: block;
+}

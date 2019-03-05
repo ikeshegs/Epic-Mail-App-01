@@ -24,15 +24,15 @@ li:hover {
     flex-direction: row;
 }
 
-.flex-container>.flex-item-1 {
+.flex-container > .flex-item-1 {
     min-width: 18vw;
     height: 100vh;
 }
 
-.flex-item-1>.flex-item-1-user-profile {
+.flex-item-1 > .flex-item-1-user-profile {
     border-bottom: 2px solid #000;
     padding: 10px;
-    height: 80px;
+    height: 100px;
     color: #fff;
     text-align: left;
     font-weight: bold;
@@ -40,20 +40,20 @@ li:hover {
     font-size: 1.75rem;
 }
 
-.flex-item-1-user-profile>a {
+.flex-item-1-user-profile > a {
     font-size: 0.75rem;
     color: #fff;
     cursor: pointer;
     margin-top: -55px;
 }
 
-.flex-item-1-user-profile>a:hover {
+.flex-item-1-user-profile > a:hover {
     color: rgba(255, 255, 255, 0.554);
     text-decoration: underline;
     text-decoration-color: rgba(255, 255, 255, 0.554);
 }
 
-.flex-container>.flex-item-2 {
+.flex-container > .flex-item-2 {
     background-color: #a09e9e;
     min-width: 17vw;
 }
@@ -70,11 +70,11 @@ li:hover {
     font-weight: 700;
 }
 
-.flex-item-2-msg-list>a {
+.flex-item-2-msg-list > a {
     color: #000;
 }
 
-.flex-item-2-msg-list>button {
+.flex-item-2-msg-list > button {
     width: 70px;
     padding: 5px;
     border: none;
@@ -87,7 +87,7 @@ li:hover {
     background-color: #c2bbbb;
 }
 
-.flex-container>.flex-item-3 {
+.flex-container > .flex-item-3 {
     background-color: #b4b4b4;
     min-width: 63vw;
 }
@@ -97,7 +97,7 @@ li:hover {
     color: #ffffff;
 }
 
-.flex-item-3-messages>div>.flex-item-3-messages-sent {
+.flex-item-3-messages > div  > .flex-item-3-messages-sent {
     background-color: #dd579a;
     width: 430px;
     padding: 15px;
@@ -120,7 +120,7 @@ li:hover {
     background-color: #753857;
 }
 
-.flex-item-3-messages>.flex-item-3-messages-received {
+.flex-item-3-messages > .flex-item-3-messages-received {
     background-color: #393f4d;
     width: 430px;
     padding: 15px;
@@ -134,13 +134,13 @@ li:hover {
     bottom: 25px;
 }
 
-.flex-item-3-messages-reply>textarea {
+.flex-item-3-messages-reply > textarea {
     border-radius: 5px;
     outline: none;
     resize: none;
 }
 
-.flex-item-3-messages-reply>button {
+.flex-item-3-messages-reply > button {
     width: 50px;
     padding: 5px;
     border: none;
@@ -161,7 +161,6 @@ ul {
 
 ul li {
     padding: 20px;
-    border-bottom: 2px solid #000;
 }
 
 #myBtn {
@@ -179,22 +178,24 @@ ul li {
     width: 80%;
     height: 100%;
     overflow: auto;
+    color: #dd579a;
 }
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #2a2d36;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 10px;
     width: 480px;
 }
 
-form>input[type=text] {
+form > input[type=text] {
     width: 350px;
 }
 
-form>textarea {
+form > textarea {
     top: 50px;
     border-radius: 5px;
     outline: none;
@@ -203,13 +204,13 @@ form>textarea {
     padding: 15px;
 }
 
-form>h4 {
+form > h4 {
     text-align: center;
     font-size: 1.5rem;
     color: #dd579a;
 }
 
-form>button {
+form > button {
     width: 100px;
     background-color: #dd579a;
     color: #fff;
