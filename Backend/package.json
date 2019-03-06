@@ -1,0 +1,33 @@
+{
+  "name": "epic-mail-app",
+  "version": "1.0.0",
+  "description": "An Email App",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikeshegs/Epic-Mail-App-01.git"
+  },
+  "author": "Ikechukwu Okoro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ikeshegs/Epic-Mail-App-01/issues"
+  },
+  "homepage": "https://github.com/ikeshegs/Epic-Mail-App-01#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^17.1.0"
+  }
+}
