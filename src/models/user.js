@@ -2,34 +2,34 @@ const User = [
     {
         id: 1,
         email: "ikeshegs@epic.com",
-        firstName: "Ikechukwu",
-        lastName: "Okoro",
+        firstname: "Ikechukwu",
+        lastname: "Okoro",
         password: "C00ljoe.",
-        phoneNumber: '08138891291'
+        phone: "08138891291"
     },
     {
         id: 2,
         email: "chiokro@epic.com",
-        firstName: "Chioma",
-        lastName: "Okoro",
+        firstname: "Chioma",
+        lastname: "Okoro",
         password: "chioma",
-        phoneNumber: '08026548946'
+        phone: "08026548946"
     },
     {
         id: 3,
         email: "nkem@epic.com",
-        firstName: "Nkem",
-        lastName: "Nnadi",
+        firstname: "Nkem",
+        lastname: "Nnadi",
         password: "ghosts",
-        phoneNumber: '08087789983'
+        phone: "08087789983"
     },
     {
         id: 4,
         email: "cliff@epic.com",
-        firstName: "Cliff",
-        lastName: "Okoro",
+        firstname: "Cliff",
+        lastname: "Okoro",
         password: "cliff",
-        phoneNumber: '07060538862'
+        phone: "07060538862"
     },
 ];
 
