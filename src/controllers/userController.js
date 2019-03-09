@@ -29,6 +29,7 @@ class UserController {
                 message: 'Phone Number is required'
             });
         }
+
         // Add New User
         const user = {
             id: userModel.length + 1,
