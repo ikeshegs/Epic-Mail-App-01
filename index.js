@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import router from './src/routes/index';
 import cors from 'cors';
+import fs from 'fs';
 
 // initialize express
 const app = express();
@@ -13,8 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 // use router
 app.use(router);
-
-
 
 const PORT = process.env.PORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      || 3000;
 app.listen(PORT)

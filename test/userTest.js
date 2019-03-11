@@ -8,11 +8,11 @@ const expect = chai.expect;
 describe(`/All User Endpoint Tests`, () => {
   it(`Create a new user on /api/v1/createuser POST`, done => {
     let User = {
-      email: "ikeshegs@epic.com",
-      firstname: "Ikechukwu",
-      lastname: "Okoro",
-      password: "C00ljoe.",
-      phone: "08138891291"
+      email: 'ikeshegs@epic.com',
+      firstname: 'Ikechukwu',
+      lastname: 'Okoro',
+      password: 'C00ljoe.',
+      phone: '08138891291'
     }
     chai
       .request(app)
