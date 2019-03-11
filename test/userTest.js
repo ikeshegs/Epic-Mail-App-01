@@ -8,6 +8,7 @@ const expect = chai.expect;
 describe(`/All User Endpoint Tests`, () => {
   it(`Create a new user on /api/v1/createuser POST`, done => {
     let User = {
+      id: 1,
       email: 'ikeshegs@epic.com',
       firstname: 'Ikechukwu',
       lastname: 'Okoro',
