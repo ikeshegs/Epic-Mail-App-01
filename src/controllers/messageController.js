@@ -25,7 +25,7 @@ class MessageController {
       subject: req.body.subject,
       message: req.body.message,
       email: req.body.email,
-      parentMessengerId: req.body.parentmessengerid,
+      parentMessengerId: req.body.parentMessengerId,
       status: req.body.status
     };
   
