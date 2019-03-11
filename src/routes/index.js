@@ -1,5 +1,6 @@
 import express from 'express';
 import userController from '../controllers/userController';
+import messageController from '../controllers/messageController';
 
 // set router
 const router = express.Router();
@@ -8,5 +9,8 @@ const router = express.Router();
 router.post('/api/v1/createuser', userController.createUser);
 router.get('/api/v1/allusers', userController.getUsers);
 router.post('/api/v1/signinuser', userController.signinUser);
+
+// Messages
+router.post('/api/v1/createmsg', messageController.createMsg);
 
 export default router;
