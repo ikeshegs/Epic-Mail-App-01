@@ -14,5 +14,6 @@ router.post('/api/v1/signinuser', userController.signinUser);
 router.post('/api/v1/createmsg', messageController.createMsg);
 router.get('/api/v1/receivedmsg', messageController.receiveMsg);
 router.get('/api/v1/sentmsg', messageController.sentMsg);
+router.get('/api/v1/unreadmsg', messageController.unreadMsg);
 
 export default router;

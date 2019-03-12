@@ -54,6 +54,15 @@ class MessageController {
       filterSentMsgs
     })
   }
+
+  unreadMsg(req, res) {
+    const filterUnreadMsgs = messageModel.filter(item => item.status === 'unread');
+    return res.status(200).send({
+      success: true,
+      message: 'All unread messages retrieved',
+      filterUnreadMsgs
+    })
+  }
   
 
 }
