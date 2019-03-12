@@ -45,4 +45,16 @@ describe(`/All Message Endpoint Tests`, () => {
         done(err);
       })
   })
+
+  it('Filter the sent messages on api/v1/sentmsg GET', done => {
+    chai
+      .request(app)
+      .get('/api/v1/sentmsg')
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.body).to.be.an('object');
+        done(err);
+      })
+  })
 });
