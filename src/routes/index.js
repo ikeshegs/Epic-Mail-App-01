@@ -13,5 +13,6 @@ router.post('/api/v1/signinuser', userController.signinUser);
 // Messages
 router.post('/api/v1/createmsg', messageController.createMsg);
 router.get('/api/v1/receivedmsg', messageController.receiveMsg);
+router.get('/api/v1/sentmsg', messageController.sentMsg);
 
 export default router;
