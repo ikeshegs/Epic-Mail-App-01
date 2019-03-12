@@ -34,7 +34,7 @@ describe(`/All Message Endpoint Tests`, () => {
       });
   });
 
-  it('Filter the received messages on api/v1/receivedmsg GET', done => {
+  it('Filter all received messages on api/v1/receivedmsg GET', done => {
     chai
       .request(app)
       .get('/api/v1/receivedmsg')
@@ -46,10 +46,22 @@ describe(`/All Message Endpoint Tests`, () => {
       })
   })
 
-  it('Filter the sent messages on api/v1/sentmsg GET', done => {
+  it('Filter all sent messages on api/v1/sentmsg GET', done => {
     chai
       .request(app)
       .get('/api/v1/sentmsg')
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.body).to.be.an('object');
+        done(err);
+      })
+  })
+
+  it('Filter all unread messages on api/v1/unreadmsg GET', done => {
+    chai
+      .request(app)
+      .get('/api/v1/unreadmsg')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
