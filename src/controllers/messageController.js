@@ -63,6 +63,20 @@ class MessageController {
       filterUnreadMsgs
     })
   }
+
+  specificEmail(req, res) {
+    const emailId = {
+      id: req.body.id
+    }
+   
+
+    const filterSpecificEmail = messageModel.filter(u => u.id === emailId.id);
+    return res.status(200).send({
+      success: true,
+      message: 'email\'s found',
+      filterSpecificEmail
+    })
+  }
   
 
 }
