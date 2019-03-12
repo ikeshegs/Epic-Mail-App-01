@@ -38,12 +38,21 @@ class MessageController {
   }
 
   receiveMsg(req, res) {
-    const filterReceivedMsgs = messageModel.filter(item =>item.status ==='inbox');
+    const filterReceivedMsgs = messageModel.filter(item => item.status ==='inbox');
     return res.status(200).send({
       success: true,
       message: 'All received messages retrieved successully',
       filterReceivedMsgs
     });
+  }
+
+  sentMsg(req, res) {
+    const filterSentMsgs = messageModel.filter(item => item.status === 'sent');
+    return res.status(200).send({
+      success: true,
+      message: 'All sent messages retrieved',
+      filterSentMsgs
+    })
   }
   
 
