@@ -69,4 +69,16 @@ describe(`/All Message Endpoint Tests`, () => {
         done(err);
       })
   })
+
+  it('Get a speciic email on api/v1/specificemail GET', done => {
+    chai
+      .request(app)
+      .get('/api/v1/specificemail')
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.body).to.be.an('object');
+        done(err);
+      })
+  })
 });
