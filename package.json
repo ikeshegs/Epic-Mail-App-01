@@ -1,7 +1,7 @@
 {
   "name": "epic-mail-app",
   "version": "1.0.0",
-  "description": "An Email App",
+  "description": "An Email Messenging App",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha --timeout 10000 --reporter=spec --recursive --require @babel/register test/*.js --exit || true",
