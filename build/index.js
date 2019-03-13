@@ -17,9 +17,10 @@ app.use(_bodyParser.default.json());
 app.use(_bodyParser.default.urlencoded({
   extended: true
 }));
-app.use(_cors.default); // use router
+app.use((0, _cors.default)()); // use router
 
 app.use(_index.default);
 var PORT = process.env.PORT || 3000;
 app.listen(PORT);
 console.log('app running on port', PORT);
+module.exports = app;
