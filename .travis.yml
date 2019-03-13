@@ -1,15 +1,20 @@
 language: node_js
 node_js:
   - "stable"
+
 cache:
   directories:
     - "node_modules"
+
+install:
+  - npm install
+
 script:
   - npm test
+
+after_script: 
+  - "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
 
 after_success:
   - npm run coverage
 
-env:
-  global:
-    - CODECLIMATE_REPO_TOKEN=f4be7d003cfa6040e7350ad252dbb651301eba8a1f18def1eec63a41860136cc
