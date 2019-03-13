@@ -70,10 +70,22 @@ describe(`/All Message Endpoint Tests`, () => {
       })
   })
 
-  it('Get a speciic email on api/v1/specificemail GET', done => {
+  it('Get a specific email on api/v1/specificemail GET', done => {
     chai
       .request(app)
       .get('/api/v1/specificemail')
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.body).to.be.an('object');
+        done(err);
+      })
+  })
+
+  it('Delete email from inbox on api/v1/deleteemail GET', done => {
+    chai
+      .request(app)
+      .delete('/api/v1/deleteemail')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;

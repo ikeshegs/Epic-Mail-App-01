@@ -16,5 +16,6 @@ router.get('/api/v1/receivedmsg', messageController.receiveMsg);
 router.get('/api/v1/sentmsg', messageController.sentMsg);
 router.get('/api/v1/unreadmsg', messageController.unreadMsg);
 router.get('/api/v1/specificemail', messageController.specificEmail);
+router.delete('/api/v1/deleteemail', messageController.deleteFromInbox);
 
 export default router;

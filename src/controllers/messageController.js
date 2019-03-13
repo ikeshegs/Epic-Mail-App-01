@@ -65,16 +65,26 @@ class MessageController {
   }
 
   specificEmail(req, res) {
-    const emailId = {
-      id: req.body.id
-    }
-   
+    const emailId = req.body.id;
 
-    const filterSpecificEmail = messageModel.filter(u => u.id === emailId.id);
+    const filterSpecificEmail = messageModel.filter(u => u.id === emailId);
     return res.status(200).send({
       success: true,
       message: 'email\'s found',
       filterSpecificEmail
+    })
+  }
+
+  deleteFromInbox(req, res) {
+    let emailId = req.params.id;
+
+    const filterInboxEmail = messageModel.filter(item => item.status === 'inbox');
+    
+    const deleteEmail = filterInboxEmail.find(messages => messages.id === emailId);
+    return res.status(200).send({
+      success: true,
+      message: 'Email deleted successfully',
+      deleteEmail
     })
   }
   
