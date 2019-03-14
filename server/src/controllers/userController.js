@@ -1,80 +1,60 @@
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 import userModel from '../models/user';
 
+const salt = bcrypt.genSaltSync(10);
 class UserController {
   createUser(req, res) {
-    // Check if the form is filled correctly
-    if (!req.body.firstname) {
-      return res.status(400).send({
-        success: false,
-        message: 'Firstname is required'
+
+    const findEmail = userModel.find(item => item.email === req.body.email);
+    if (findEmail) {
+      return res.status(409).json({
+        status: 409,
+        error: 'Email Exists'
+      })
+    } else {
+      const hash = bcrypt.hashSync(req.body.password, salt);
+      //User Model
+      const user = {
+        id: userModel.length + 1,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        password: hash,
+        phone: req.body.phone
+      };
+      userModel.push(user);
+      return res.status(201).send({
+        status: 201,
+        data: {user}
       });
-    } else if (!req.body.lastname) {
-        return res.status(400).send({
-          success: false,
-          message: 'Lastname is required'
-        });
-    } else if (!req.body.email) {
-        return res.status(400).send({
-          success: false,
-          message: 'Email address is required'
-        });
-    } else if (!req.body.password) {
-        return res.status(400).send({
-          success: false,
-          message: 'Password is required'
-        });
-    } else if (!req.body.phone) {
-        return res.status(400).send({
-          success: false,
-          message: 'Phone Number is required'
-        });
     }
 
-    // Add New User
-    const user = {
-      id: userModel.length + 1,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      email: req.body.email,
-      password: req.body.password,
-      phone: req.body.phone
-    };
-
-    userModel.push(user);
-    return res.status(201).send({
-      success: true,
-      message: 'User created',
-      user
-    });
-  }
-
-  getUsers(req, res) {
-    return res.status(200).send({
-      success: true,
-      message: 'All users retrieved successfully',
-      userModel
-    });
   }
 
   signinUser(req, res) {
-    if (!req.body.email) {
-      return res.status(400).send({
-        success: false,
-        message: 'Email is required'
-      });
-    } else if (!req.body.password) {
-        return res.status(400).send({
-          success: false,
-          message: 'Password is required'
-        });
-    }
+    const findEmail = userModel.find(item => item.email === req.body.email);
 
-    // Sign in user
+    if (findEmail) {
+      bcrypt.compareSync(req.body.password, userModel.password);
+      return res.status(200).json({
+        status: 200,
+        data
+      })
+    } else {
+      return res.status(401).json({
+        status: 401,
+        error: 'User doesn\'t exist'
+      })
+    }
+    
+    
+
+
     const user = {
       email: req.body.email,
       password: req.body.password
-    }
-                                                                                                                                                                                                                                                                                          
+    }                                                                                                                                                                                                                                                         
   }
 
 }
