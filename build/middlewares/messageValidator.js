@@ -1,0 +1,31 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var messageValidator = {
+  createMessage: function createMessage(req, res, next) {
+    if (!req.body.subject || req.body.subject.trim().length < 1) {
+      return res.status(400).send({
+        error: 'Subject is required'
+      });
+    }
+
+    if (!req.body.message || req.body.message.trim().length < 1) {
+      return res.status(400).send({
+        error: 'Message is required'
+      });
+    }
+
+    if (!req.body.email || req.body.email.trim().length < 1) {
+      return res.status(400).send({
+        error: 'Email address is required'
+      });
+    }
+
+    return next();
+  }
+};
+var _default = messageValidator;
+exports.default = _default;

@@ -57,25 +57,23 @@ function () {
 
         return res.status(201).send({
           status: 201,
-          data: {
-            user: user
-          }
+          data: [user]
         });
       }
     }
   }, {
     key: "signinUser",
     value: function signinUser(req, res) {
-      var findEmail = _user.default.find(function (item) {
+      var user = _user.default.find(function (item) {
         return item.email === req.body.email;
       });
 
-      if (findEmail) {
-        _bcryptjs.default.compareSync(req.body.password, _user.default.password);
+      if (user) {
+        _bcryptjs.default.compareSync(req.body.password, user.password);
 
         return res.status(200).json({
           status: 200,
-          data: data
+          data: [user]
         });
       } else {
         return res.status(401).json({
@@ -83,11 +81,6 @@ function () {
           error: 'User doesn\'t exist'
         });
       }
-
-      var user = {
-        email: req.body.email,
-        password: req.body.password
-      };
     }
   }]);
 

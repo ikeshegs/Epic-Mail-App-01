@@ -26,35 +26,26 @@ class UserController {
       userModel.push(user);
       return res.status(201).send({
         status: 201,
-        data: {user}
+        data: [user]
       });
     }
 
   }
 
   signinUser(req, res) {
-    const findEmail = userModel.find(item => item.email === req.body.email);
-
-    if (findEmail) {
-      bcrypt.compareSync(req.body.password, userModel.password);
+    const user = userModel.find(item => item.email === req.body.email);
+    if (user) {
+      bcrypt.compareSync(req.body.password, user.password);
       return res.status(200).json({
         status: 200,
-        data
+        data: [user]
       })
     } else {
       return res.status(401).json({
         status: 401,
         error: 'User doesn\'t exist'
       })
-    }
-    
-    
-
-
-    const user = {
-      email: req.body.email,
-      password: req.body.password
-    }                                                                                                                                                                                                                                                         
+    }                                                                                                                                                                                                                                           
   }
 
 }
