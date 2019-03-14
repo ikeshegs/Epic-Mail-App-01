@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",
-    "test": "nyc mocha --timeout 10000 --reporter=spec --recursive --require @babel/register test/*.js --exit || true",
+    "test": "nyc mocha --timeout 10000 --reporter=spec --recursive --require @babel/register server/test/*.js --exit || true",
     "build": "babel server/src --out-dir build",
     "dev-start": "babel-watch server/src/index.js",
     "coveralls": "npm run cover -- --report lcovonly && ./coverage/lcov.info | coveralls",

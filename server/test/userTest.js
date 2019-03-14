@@ -1,15 +1,15 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../index';
+import app from '../src/index';
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 
 describe(`/All User Endpoint Tests`, () => {
-  it(`Create a new user on /api/v1/createuser POST`, done => {
+  it(`Create a new user on /api/v1/auth/signup POST`, done => {
     let User = {
       id: 1,
-      email: 'ikeshegs@epic.com',
+      email: 'meee@epic.com',
       firstname: 'Ikechukwu',
       lastname: 'Okoro',
       password: 'C00ljoe.',
@@ -17,7 +17,7 @@ describe(`/All User Endpoint Tests`, () => {
     }
     chai
       .request(app)
-      .post('/api/v1/createuser')
+      .post('/api/v1/auth/signup')
       .send(User)
       .end((err, res) => {
         expect(res).to.have.status(201);
@@ -29,15 +29,4 @@ describe(`/All User Endpoint Tests`, () => {
       });
   });
 
-  it(`It should fetch all the USERS /api/v1/allusers GET`, done => {
-    chai
-      .request(app)
-      .get('/api/v1/allusers')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res).to.be.json;
-        expect(res.body).to.be.an('object');
-        done(err);
-      });
-  });
 });
