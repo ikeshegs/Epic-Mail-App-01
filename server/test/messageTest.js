@@ -1,12 +1,12 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../index';
+import app from '../src/index';
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 
 describe(`/All Message Endpoint Tests`, () => {
-  it(`Create a new Message on /api/v1/createmsg POST`, done => {
+  it(`Create a new Message on /api/v1/messages POST`, done => {
     let newMsg = {
       id: 1,
       createdOn: new Date(),
@@ -19,7 +19,7 @@ describe(`/All Message Endpoint Tests`, () => {
     
     chai
       .request(app)
-      .post('/api/v1/createmsg')
+      .post('/api/v1/messages')
       .send(newMsg)
       .end((err, res) => {
         expect(res).to.have.status(201);
@@ -34,10 +34,10 @@ describe(`/All Message Endpoint Tests`, () => {
       });
   });
 
-  it('Filter all received messages on api/v1/receivedmsg GET', done => {
+  it('Filter all received messages on api/v1/messages GET', done => {
     chai
       .request(app)
-      .get('/api/v1/receivedmsg')
+      .get('/api/v1/messages')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -46,10 +46,10 @@ describe(`/All Message Endpoint Tests`, () => {
       })
   })
 
-  it('Filter all sent messages on api/v1/sentmsg GET', done => {
+  it('Filter all sent messages on api/v1/messages/sent GET', done => {
     chai
       .request(app)
-      .get('/api/v1/sentmsg')
+      .get('/api/v1/messages/sent')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -58,10 +58,10 @@ describe(`/All Message Endpoint Tests`, () => {
       })
   })
 
-  it('Filter all unread messages on api/v1/unreadmsg GET', done => {
+  it('Filter all unread messages on api/v1/messages/unread GET', done => {
     chai
       .request(app)
-      .get('/api/v1/unreadmsg')
+      .get('/api/v1/messages/unread')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -70,10 +70,10 @@ describe(`/All Message Endpoint Tests`, () => {
       })
   })
 
-  it('Get a specific email on api/v1/specificemail GET', done => {
+  it('Get a specific email on api/v1/messages/:id GET', done => {
     chai
       .request(app)
-      .get('/api/v1/specificemail')
+      .get('/api/v1/messages/2')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
@@ -82,10 +82,10 @@ describe(`/All Message Endpoint Tests`, () => {
       })
   })
 
-  it('Delete email from inbox on api/v1/deleteemail GET', done => {
+  it('Delete email from inbox on api/v1/messages/:id GET', done => {
     chai
       .request(app)
-      .delete('/api/v1/deleteemail')
+      .delete('/api/v1/messages/2')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
