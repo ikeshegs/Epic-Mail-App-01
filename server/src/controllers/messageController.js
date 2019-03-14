@@ -2,22 +2,6 @@ import messageModel from '../models/message';
 
 class MessageController {
   createMsg(req, res) {
-    if (!req.body.subject) {
-      return res.status(400).send({
-        success: false,
-        message: 'Subject is required'
-      });
-    } else if (!req.body.message) {
-        return res.status(400).send({
-          success: false,
-          message: 'Message is required'
-        });
-    } else if (!req.body.email) {
-        return res.status(400).send({
-          success: false,
-          message: 'Email address is required'
-        });
-    } 
     // Create Message
     const messageContent = {
       id: messageModel.length + 1,
