@@ -1,10 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-<<<<<<< HEAD
-import router from 'routes/index';
-=======
 import router from './routes/index';
->>>>>>> ea3be1aabed836524539835218474d0c91eecce4
 import cors from 'cors';
 
 // initialize express
