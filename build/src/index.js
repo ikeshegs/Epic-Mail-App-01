@@ -18,7 +18,10 @@ var swaggerDoc = _yamljs.default.load("".concat(__dirname, "/../../swagger.yaml"
 
 
 var app = (0, _express.default)();
-app.use('/api-docs', _swaggerUiExpress.default.serve, _swaggerUiExpress.default.setup(swaggerDoc)); // configure bodyParser for incoming requests
+app.use('/api-docs', _swaggerUiExpress.default.serve, _swaggerUiExpress.default.setup(swaggerDoc));
+app.use('/', function (res, req) {
+  res.send('Welcome to Epic Mail App. A Email platorm');
+}); // configure bodyParser for incoming requests
 
 app.use(_bodyParser.default.json());
 app.use(_bodyParser.default.urlencoded({
