@@ -17,6 +17,12 @@ Epic Mail App is an application that provides uses with the ability to via email
 4. git
 5. postman
 
+### API url
+- https://epicmail-apps.herokuapp.com/
+
+### API Documentation
+- https://epicmail-apps.herokuapp.com/api-docs
+
 ### Installing
 
 1. Copy repository link
