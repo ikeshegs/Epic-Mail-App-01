@@ -12,6 +12,10 @@ const app = express();
 
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
 
+app.use('/', (res, req) => {
+  res.send('Welcome to Epic Mail App. A Email platorm')
+});
+
 // configure bodyParser for incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

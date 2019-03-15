@@ -4,9 +4,11 @@
   "description": "An Email Messenging App",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "clean": "rm -rf build && mkdir build",
+    "copy-swagger": "cp -R swagger.yaml build",
+    "start": "node build/src/index.js",
     "test": "nyc mocha --timeout 10000 --reporter=spec --recursive --require @babel/register server/test/*.js --exit || true",
-    "build": "babel server --out-dir build",
+    "build": "npm run copy-swagger && babel server --out-dir build",
     "dev-start": "babel-watch server/src/index.js",
     "coveralls": "npm run cover -- --report lcovonly && ./coverage/lcov.info | coveralls",
     "generate-lcov": "nyc report --reporter=text-lcov >lcov.info",
