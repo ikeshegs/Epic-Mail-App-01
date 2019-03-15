@@ -15,8 +15,7 @@ describe(`/All Message Endpoint Tests`, () => {
       email: 'ikeshegs@epic.com',
       parentMessengerId: 2,
       status: 'sent.'
-    }
-    
+    };
     chai
       .request(app)
       .post('/api/v1/messages')
@@ -43,8 +42,8 @@ describe(`/All Message Endpoint Tests`, () => {
         expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done(err);
-      })
-  })
+      });
+  });
 
   it('Filter all sent messages on api/v1/messages/sent GET', done => {
     chai
@@ -55,8 +54,8 @@ describe(`/All Message Endpoint Tests`, () => {
         expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done(err);
-      })
-  })
+      });
+  });
 
   it('Filter all unread messages on api/v1/messages/unread GET', done => {
     chai
@@ -67,8 +66,8 @@ describe(`/All Message Endpoint Tests`, () => {
         expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done(err);
-      })
-  })
+      });
+  });
 
   it('Get a specific email on api/v1/messages/:id GET', done => {
     chai
@@ -79,8 +78,8 @@ describe(`/All Message Endpoint Tests`, () => {
         expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done(err);
-      })
-  })
+      });
+  });
 
   it('Delete email from inbox on api/v1/messages/:id GET', done => {
     chai
@@ -91,6 +90,6 @@ describe(`/All Message Endpoint Tests`, () => {
         expect(res).to.be.json;
         expect(res.body).to.be.an('object');
         done(err);
-      })
-  })
+      });
+  });
 });

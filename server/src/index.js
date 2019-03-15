@@ -1,10 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import router from './routes/index';
 import cors from 'cors';
+import yaml from 'yamljs';
+import swagger from 'swagger-ui-express';
+import router from './routes/index';
+
+const swaggerDoc = yaml.load(`${__dirname}/../../swagger.yaml`);
 
 // initialize express
 const app = express();
+
+app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
 
 // configure bodyParser for incoming requests
 app.use(bodyParser.json());
@@ -14,7 +20,7 @@ app.use(cors());
 // use router
 app.use(router);
 
-const PORT = process.env.PORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT)
 console.log('app running on port', PORT);
 
