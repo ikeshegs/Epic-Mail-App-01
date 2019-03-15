@@ -13,6 +13,8 @@ var _messageController = _interopRequireDefault(require("../controllers/messageC
 
 var _validator = _interopRequireDefault(require("../middlewares/validator"));
 
+var _messageValidator = _interopRequireDefault(require("../middlewares/messageValidator"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // set router
@@ -22,7 +24,7 @@ var router = _express.default.Router(); // User router
 router.post('/api/v1/auth/signup', _validator.default.signupValidator, _userController.default.createUser);
 router.post('/api/v1/auth/login', _validator.default.loginValidator, _userController.default.signinUser); // Messages
 
-router.post('/api/v1/messages', _messageController.default.createMsg);
+router.post('/api/v1/messages', _messageValidator.default.createMessage, _messageController.default.createMsg);
 router.get('/api/v1/messages', _messageController.default.receiveMsg);
 router.get('/api/v1/messages/sent', _messageController.default.sentMsg);
 router.get('/api/v1/messages/unread', _messageController.default.unreadMsg);

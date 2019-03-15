@@ -20,7 +20,6 @@ describe(`/All User Endpoint Tests`, () => {
       .post('/api/v1/auth/signup')
       .send(User)
       .end((err, res) => {
-        if (err) return done(err);
         expect(res.body).to.haveOwnProperty('status');
         expect(res.status).to.equal(201);
         expect(res.body).to.be.an('object');
@@ -48,7 +47,6 @@ describe(`/All User Endpoint Tests`, () => {
       .post('/api/v1/auth/login')
       .send(User)
       .end((err, res) => {
-        if (err) return done(err);
         expect(res.body).to.haveOwnProperty('status');
         expect(res.status).to.equal(200);
         expect(res.body).to.be.an('object');

@@ -31,17 +31,15 @@ function () {
         createdOn: new Date(),
         subject: req.body.subject,
         message: req.body.message,
-        email: req.body.email,
-        parentMessengerId: req.body.parentMessengerId,
+        parentMessageId: req.body.parentMessageId,
         status: req.body.status
       };
 
       _message.default.push(messageContent);
 
       return res.status(201).send({
-        success: true,
-        message: 'Message created',
-        messageContent: messageContent
+        status: 200,
+        data: [messageContent]
       });
     }
   }, {
@@ -52,9 +50,8 @@ function () {
       });
 
       return res.status(200).send({
-        success: true,
-        message: 'All received messages retrieved successully',
-        filterReceivedMsgs: filterReceivedMsgs
+        status: 200,
+        data: [filterReceivedMsgs]
       });
     }
   }, {
@@ -65,9 +62,8 @@ function () {
       });
 
       return res.status(200).send({
-        success: true,
-        message: 'All sent messages retrieved',
-        filterSentMsgs: filterSentMsgs
+        status: 200,
+        data: [filterSentMsgs]
       });
     }
   }, {
@@ -78,30 +74,29 @@ function () {
       });
 
       return res.status(200).send({
-        success: true,
-        message: 'All unread messages retrieved',
-        filterUnreadMsgs: filterUnreadMsgs
+        status: 200,
+        data: [filterUnreadMsgs]
       });
     }
   }, {
     key: "specificEmail",
     value: function specificEmail(req, res) {
-      var emailId = req.body.id;
+      var emailId = Number(req.params.id);
 
       var filterSpecificEmail = _message.default.filter(function (u) {
         return u.id === emailId;
       });
 
+      console.log(filterSpecificEmail);
       return res.status(200).send({
-        success: true,
-        message: 'email\'s found',
-        filterSpecificEmail: filterSpecificEmail
+        status: 200,
+        data: [filterSpecificEmail]
       });
     }
   }, {
     key: "deleteFromInbox",
     value: function deleteFromInbox(req, res) {
-      var emailId = req.params.id;
+      var emailId = Number(req.params.id);
 
       var filterInboxEmail = _message.default.filter(function (item) {
         return item.status === 'inbox';
@@ -111,9 +106,8 @@ function () {
         return messages.id === emailId;
       });
       return res.status(200).send({
-        success: true,
-        message: 'Email deleted successfully',
-        deleteEmail: deleteEmail
+        status: 200,
+        message: 'Email deleted'
       });
     }
   }]);

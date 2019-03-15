@@ -55,9 +55,16 @@ function () {
 
         _user.default.push(user);
 
+        var token = _jsonwebtoken.default.sign({
+          email: user.email,
+          password: user.password
+        }, 'secretkey', {
+          expiresIn: '1h'
+        });
+
         return res.status(201).send({
           status: 201,
-          data: [user]
+          data: [token]
         });
       }
     }
@@ -71,9 +78,15 @@ function () {
       if (user) {
         _bcryptjs.default.compareSync(req.body.password, user.password);
 
+        var token = _jsonwebtoken.default.sign({
+          email: user.email
+        }, 'secretkey', {
+          expiresIn: '1h'
+        });
+
         return res.status(200).json({
           status: 200,
-          data: [user]
+          data: [token]
         });
       } else {
         return res.status(401).json({

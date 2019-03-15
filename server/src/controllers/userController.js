@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import userModel from '../models/user';
 
+
 const salt = bcrypt.genSaltSync(10);
 class UserController {
   createUser(req, res) {
@@ -24,9 +25,13 @@ class UserController {
         phone: req.body.phone
       };
       userModel.push(user);
+      const token = jwt.sign({
+        email: user.email,
+        password: user.password
+      }, 'secretkey', {expiresIn: '1h'})
       return res.status(201).send({
         status: 201,
-        data: [user]
+        data: [token]
       });
     }
 
@@ -36,11 +41,19 @@ class UserController {
     const user = userModel.find(item => item.email === req.body.email);
     if (user) {
       bcrypt.compareSync(req.body.password, user.password);
+        const token = jwt.sign({
+          email: user.email
+        }, 
+        'secretkey',
+        {
+          expiresIn: '1h'
+        }
+        )
       return res.status(200).json({
         status: 200,
-        data: [user]
+        data: [token]
       })
-    } else {
+    } else {  
       return res.status(401).json({
         status: 401,
         error: 'User doesn\'t exist'
