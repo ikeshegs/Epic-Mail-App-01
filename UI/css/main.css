@@ -8,6 +8,13 @@ body {
     background-color: #393f4d;
 }
 
+.image {
+    /*background-image: url(../images/mathyas-kurmann-102977-unsplash\ \(1\).jpg);*/
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/mathyas-kurmann-102977-unsplash\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 a {
     color: #dd579a;
     text-decoration: none;
