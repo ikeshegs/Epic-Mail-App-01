@@ -4,11 +4,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
 
-<<<<<<< HEAD
-var _index = _interopRequireDefault(require("routes/index"));
-=======
 var _index = _interopRequireDefault(require("./routes/index"));
->>>>>>> ea3be1aabed836524539835218474d0c91eecce4
 
 var _cors = _interopRequireDefault(require("cors"));
 

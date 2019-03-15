@@ -10,11 +10,6 @@ const messageValidator = {
         error: 'Message is required'
       });
     }
-    if (!req.body.email || req.body.email.trim().length < 1) {
-      return res.status(400).send({
-        error: 'Email address is required'
-      });
-    } 
     return next();
   }
 }
