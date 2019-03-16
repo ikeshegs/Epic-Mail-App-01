@@ -3,33 +3,14 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-body {
-    background-color: #393f4d;
-    margin: 5px;
-}
-
-.bodyImage {
-    background-color: #393f4d;
-}
-
-h3.title {
-    padding-top: 20px
-}
 
 #text-change {
     display: none;
 }
 
-@media only screen and (min-width: 537px) {
-    body {
-        background-color: #393f4d;
-    }
-    .bodyImage {
-        padding-top: 50px;
-    }
-}
 
 @media only screen and (min-width: 768px) {
+
     .bodyImage {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) 0% 0% / cover no-repeat, url(../images/background-image.jpg);
         background-repeat: no-repeat;
@@ -46,10 +27,8 @@ h3.title {
         grid-template-columns: 700px 500px;
         grid-gap: 50px;
         top: 120px;
-    }
-  }
-
-  
+    }<<<<<< bg-ui-changes-164657766
+}
 
 
 a {
@@ -59,20 +38,14 @@ a {
 }
 
 .wrapper {
-    margin: auto;
-    padding: 0 10px;
+    overflow: hidden;
     background-color: #f2f2f2;
-    width: 400px;
+    width: 300px;
 }
 
 .wrapper-border {
     border-radius: 8px;
 }
-
-.wrapper-width {
-    max-width: 800px;
-}
-
 
 
 #top {
