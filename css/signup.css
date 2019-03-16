@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: #393f4d;
+    margin: auto;
+}
+
+h3.title {
+    padding-top: 10px
+}
+
+#text-change {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .bodyImage {
+        padding-top: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    body {
+        background-color: #393f4d;
+    }
+    .wrapper {
+        overflow: hidden;
+        background-color: #f2f2f2;
+        margin: 70px 90px;
+    }
+    .wrapper-border {
+        border-radius: 8px;
+    }
+    
+    .bodyImage {
+        padding: 50px 40px 0 40px;
+    }
+    input[type=submit] {
+        width: 90%;
+        background-color: #dd579a;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 14px 0;
+        margin-top: 10px;
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        background-color: #393f4d;
+    }
+    .wrapper {
+        overflow: hidden;
+        background-color: #f2f2f2;
+    }
+    .wrapper-border {
+        border-radius: 8px;
+    }
+    .bodyImage {
+        margin: 20px 40px 30px 40px;
+        
+    }
+    .bodyImage {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) 0% 0%, url(../images/background-image.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+        padding-top: 100px;
+    }
+    input[type=submit] {
+        border-radius: 8px;
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+    input[type=email], [type=password], [type=text], [type=date], [type=tel] {
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .bodyImage {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) 0% 0% / cover no-repeat, url(../images/background-image.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+        padding-top: 100px;
+    }
+    body {
+        background-color: #393f4d;
+    }
+    input[type=submit] {
+        border-radius: 8px;
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+    input[type=email], [type=password], [type=text], [type=date], [type=tel] {
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 5px;
+        width: 50%;
+        margin-top: 10px;
+        padding: 20px 80px;
+    }
+    .bodyImage {
+        margin: 70px 80px 70px 80px;
+    }
+}
+
+
+
+a {
+    color: #dd579a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.wrapper {
+    overflow: hidden;
+    background-color: #f2f2f2;
+    margin: 40px 20px;
+}
+
+.wrapper-border {
+    border-radius: 8px;
+}
+
+#top {
+    top: 90px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title > h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.title > h1 > strong {
+    color: #dd579a
+}
+
+.title-padding-top {
+    padding-top: 20px;
+}
+
+.title-text {
+    font-family: 'Righteous', cursive;
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 15px;
+}
+
+.form-padding-bottom {
+    padding-bottom: 10px;
+}
+
+/*****FORM STYLE*****/
+form {
+    font-size: 0.75rem;
+}
+
+.form-style {
+    padding-left: 20px;
+}
+
+.form-checkbox {
+    padding: 0;
+}
+
+.form-new-account-div {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.border-outline:focus {
+    border: 2px solid #c75d92;
+}
+
+input[type=email], [type=password], [type=text], [type=date], [type=tel] {
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+    margin-top: 10px;
+    padding: 12px 20px;
+    outline: none;
+}
+
+input[type=submit] {
+    width: 90%;
+    background-color: #dd579a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 14px 0;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+input[type=submit]:hover {
+    background-color: #c75d92;
+}
+
+input[type=checkbox] {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
