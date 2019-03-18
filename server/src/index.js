@@ -20,6 +20,7 @@ app.use(router);
 
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
 
+
 app.get('/', (req, res) => {
   return res
     .status(200)
