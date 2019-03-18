@@ -20,8 +20,10 @@ app.use(router);
 
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
 
-app.get('/', (res, req) => {
-  res.send('Welcome to Epic Mail App. A Email messaging platform');
+app.get('/', (req, res) => {
+  return res
+    .status(200)
+    .send('Welcome to Epic Mail App. A Email messaging platform');
 });
 
 const PORT = process.env.PORT || 3000;

@@ -2,11 +2,12 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Epic Mail
-  description: Epic Mail App is an application that provides uses with the ability to via emails to their friends and business associates.
+  description: This is a documentation for Epic Mail App
   contact: {}
-host: https://epicmail-apps.herokuapp.com
+host: epicmail-apps.herokuapp.com
 basePath: /api/v1
 schemes:
+- https
 - http
 consumes:
 - application/json
@@ -23,18 +24,34 @@ paths:
       deprecated: false
       produces:
       - application/json
+      consumes:
+      - application/x-www-form-urlencoded
       parameters:
-      - name: Content-Type
-        in: header
+      - name: firstname
+        in: formData
         required: true
         type: string
         description: ''
-      - name: Body
-        in: body
+      - name: lastname
+        in: formData
         required: true
+        type: string
         description: ''
-        schema:
-          $ref: '#/definitions/localhost%3A3000~1api~1v1~1auth~1signupRequest'
+      - name: email
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: password
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: phone
+        in: formData
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
@@ -49,18 +66,19 @@ paths:
       deprecated: false
       produces:
       - application/json
+      consumes:
+      - application/x-www-form-urlencoded
       parameters:
-      - name: Content-Type
-        in: header
+      - name: email
+        in: formData
         required: true
         type: string
         description: ''
-      - name: Body
-        in: body
+      - name: password
+        in: formData
         required: true
+        type: string
         description: ''
-        schema:
-          $ref: '#/definitions/localhost%3A3000~1api~1v1~1auth~1loginRequest'
       responses:
         200:
           description: ''
@@ -76,17 +94,12 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
       - name: Body
         in: body
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/localhost%3A3000~1api~1v1~1messagesRequest'
+          $ref: '#/definitions/https%3A~1~1epicmail-apps.herokuapp.com~1api~1v1~1messagesRequest'
       responses:
         200:
           description: ''
@@ -170,47 +183,7 @@ paths:
           description: ''
           headers: {}
 definitions:
-  localhost:3000/api/v1/auth/signupRequest:
-    title: https://epicmail-apps.herokuapp.com/api/v1/auth/signupRequest
-    example:
-      firstname: Ikechuwu
-      lastname: okoro
-      email: andela@epic.com
-      password: test
-      phone: 08056415165
-    type: object
-    properties:
-      firstname:
-        type: string
-      lastname:
-        type: string
-      email:
-        type: string
-      password:
-        type: string
-      phone:
-        type: string
-    required:
-    - firstname
-    - lastname
-    - email
-    - password
-    - phone
-  localhost:3000/api/v1/auth/loginRequest:
-    title: https://epicmail-apps.herokuapp.com/api/v1/auth/loginRequest
-    example:
-      email: andela@epic.com
-      password: test
-    type: object
-    properties:
-      email:
-        type: string
-      password:
-        type: string
-    required:
-    - email
-    - password
-  localhost:3000/api/v1/messagesRequest:
+  https://epicmail-apps.herokuapp.com/api/v1/messagesRequest:
     title: https://epicmail-apps.herokuapp.com/api/v1/messagesRequest
     example:
       subject: tahjnk
