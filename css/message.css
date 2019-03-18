@@ -1,0 +1,175 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    overflow: hidden;
+    margin: 0;
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    color: #dd579a;
+    text-decoration: none;
+    cursor: pointer;
+}
+body {
+    background-color: #c4cde4;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    padding: 20px;
+}
+.profile-wrapper {
+    margin: 0;
+    width: 100vw;
+    height: 5em;
+    overflow: hidden;
+    border-bottom: 2px solid #495369;
+    padding: 5px;
+}
+.col-1 {
+    width: 50%;
+    height: 60px;
+    float: left;
+}
+.col-2 {
+    width: 50%;
+    height: 60px;
+}
+.profile-wrapper__settings {
+    position: relative;
+    float: left;
+    font-size: .9rem;
+    top: 45px;
+    left: 400px;
+}
+.profile-wrapper__name > h4 {
+    padding: 15px;
+    font-size: 2em;
+}
+.profile-wrapper__settings > a:hover {
+    border-radius: 8px;
+    border: 2px solid #495369;
+    color: #dd579a;
+    background-color: #495369;
+    margin: 5px;
+    padding: 5px;
+}
+li:hover {
+    background-color: #495369;
+}
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+.flex-container > .flex-item-1 {
+    width: 15vw;
+    height: 100vh;
+    border-right: 2px solid #495369;
+}
+.flex-container > .flex-item-2 {
+    background-color: #c4cde4;
+    min-width: 20vw;
+}
+.flex-item-2-msg-list {
+    padding: 20px;
+    font-size: 1rem;
+    max-height: 70px;
+    font-size: 0.75rem;
+    border-bottom: 1px solid #b4b4b4;
+}
+.flex-item-2-msg-list > a {
+    color: #000;
+}
+.flex-item-2-msg-list > a:hover {
+    color: #fff;
+}
+.flex-item-2-msg-list:hover {
+    background-color: #495369;
+}
+.flex-item-2-msg-list > a > button {
+    font-size: 0.7rem;
+    float: right;
+    border: none;
+    color: #fff;
+    background-color: #dd579a;
+    cursor: grab;
+}
+.flex-container > .flex-item-3 {
+    background-color: #b4b4b4;
+    width: 65vw;
+    overflow-y: visible;
+}
+.flex-item-3-messages {
+    padding: 10px 0 0 10px;
+    color: #ffffff;
+}
+.flex-item-3-messages > .flex-item-3-messages-received {
+    background-color: #c4cde4;
+    width: 95%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.flex-item-3-messages-received > p {
+    padding: 5px;
+}
+.flex-item-3-messages > div  > .flex-item-3-messages-sent {
+    background-color: #dd579a;
+    width: 95%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.flex-item-3-messages-reply {
+    float: right;
+    padding-right: 43px;
+    width: 80%;
+}
+.flex-item-3-messages-reply > div > textarea {
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    width: 80%;
+}
+.flex-item-3-messages-reply > button {
+    float: right;
+    width: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dd579a;
+    color: #fff;
+    cursor: pointer;
+    top: 5px;
+}
+.icon {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .flex-item-1 {
+        display: none;
+    }
+    ul a.icon {
+        float: left;
+        display: block;
+    }
+    .flex-item-2 {
+        width: 90vw;
+    }
+    .flex-item-3 {
+        display: none;
+    }
+    .bodyImage {
+        padding-top: 20px;
+    }
+    .title-padding-top {
+        padding-top: 20px;
+    }
+}
