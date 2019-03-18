@@ -10,12 +10,6 @@ const swaggerDoc = yaml.load(`${__dirname}/../../swagger.yaml`);
 // initialize express
 const app = express();
 
-app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
-
-app.get('/', (res, req) => {
-  res.send('Welcome to Epic Mail App. A Email messaging platform');
-});
-
 // configure bodyParser for incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +17,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 // use router
 app.use(router);
+
+app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
+
+app.get('/', (res, req) => {
+  res.send('Welcome to Epic Mail App. A Email messaging platform');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT)
