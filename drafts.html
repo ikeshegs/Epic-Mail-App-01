@@ -4,25 +4,27 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Draft | EPIC MAIL</title>
+    <title>Inbox | EPIC MAIL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/message.css">
     <link rel="stylesheet" type="text/css" href="css/group.css">
     <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
-    <header class="site-header title">
-    </header>
+    <div class="profile-wrapper">
+        <div class="profile-wrapper__name col-1">
+            <h4>John Doe</h4>
+        </div>
+        <div class="profile-wrapper__settings col-2">
+            <a id="passwordModalBtn">Reset Password</a>
+            <a href="index.html">Logout</a>
+        </div>
+    </div>
     <div class="flex-container">
         <div class="flex-item-1">
-            <div class="flex-item-1-user-profile">
-                <p>John Doe</p>
-                <a id="passwordModalBtn">Reset Password</a>
-                <a href="index.html">Logout</a>
-            </div>
-            <nav class="links">
+            <nav class="links" id="menu">
                 <ul>
                     <a id="myBtn">
                         <li>Compose</li>
@@ -33,74 +35,87 @@
                     <a href="sent.html">
                         <li>Sent</li>
                     </a>
-                    <a href="#">
+                    <a href="drafts.html">
                         <li>Drafts</li>
                     </a>
-                    <div class="subnav">
+                    <a href="drafts.html">
+                        <li>Group</li>
+                    </a>
+                    <a href="javascript:void(0);" class="icon" onclick="responsive()">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                    <!--<div class="subnav">
                         <button class="subnavbtn">Group</button>
                         <div class="subnav-content">
                             <a id="newgroupbtn">Create Group</a>
                             <a id="adduserbtn">Add User to Group</a>
                         </div>
-                    </div>
+                    </div>-->
                 </ul>
             </nav>
         </div>
         <div class="flex-item-2">
-            <div class="flex-item-2-msg-header">
-                <p>Drafts Lists</p>
+            <div class="flex-item-2-msg-list">
+                <a href="">
+                    <span>ikeshegs@epicmail.com</span><p>This is a sample mail.</p><button>Delete</button>
+                </a>
             </div>
             <div class="flex-item-2-msg-list">
                 <a href="">
-                    <p>Drafts gwkwhjbdbvsk</p>
+                    <span>andela@epicmail.com</span><p>This is a sample mail.</p><button>Delete</button>
                 </a>
-                <button type="submit">Delete</button>
             </div>
             <div class="flex-item-2-msg-list">
                 <a href="">
-                    <p>Drafts gwkwhjbdbvsk</p>
+                    <span>epic@epicmail.com</span>
+                    <p>This is a sample mail.</p>
+                    <button>Delete</button>
                 </a>
-                <button type="submit">Delete</button>
             </div>
             <div class="flex-item-2-msg-list">
                 <a href="">
-                    <p>Drafts gwkwhjbdbvsk</p>
+                    <span>ikeshegs@epicmail.com</span><p>This is a sample mail.</p><button>Delete</button>
                 </a>
-                <button type="submit">Delete</button>
             </div>
             <div class="flex-item-2-msg-list">
                 <a href="">
-                    <p>Drafts gwkwhjbdbvsk</p>
+                    <span>ike@epicmail.com</span><p>This is a sample mail.</p><button>Delete</button>
                 </a>
-                <button type="submit">Delete</button>
             </div>
             <div class="flex-item-2-msg-list">
                 <a href="">
-                    <p>Drafts gwkwhjbdbvsk</p>
+                    <span>shegs@epicmail.com</span><p>This is a sample mail.</p><button>Delete</button>
                 </a>
-                <button type="submit">Delete</button>
             </div>
             <div class="flex-item-2-msg-list">
                 <a href="">
-                    <p>Drafts gwkwhjbdbvsk</p>
+                    <span>ikeshegs@epicmail.com</span><p>This is a sample mail.</p><button>Delete</button>
                 </a>
-                <button type="submit">Delete</button>
             </div>
         </div>
         <div class="flex-item-3">
             <div class="flex-item-3-messages">
                 <div class="flex-item-3-messages-received">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, aliquam voluptatem nulla,</p>
+                    <p>This is the subject of the mail</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, aliquam voluptatem nulla, guy   v hgic hcghck chkgk  uhg k ku uvu v uy  tictyc  ytyd h  td u gyuf ytdrtgty tydu tuyfty t yt it yg yty uytrdtdst y tdyt u</p>
                 </div>
-
                 <div>
                     <div class="flex-item-3-messages-sent">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                     </div>
-                    <button class="retractbtn">Retract</button>
                 </div>
+                <div class="flex-item-3-messages-received">
+                    <p>This is the subject of the mail</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, aliquam voluptatem nulla, guy   v hgic hcghck chkgk  uhg k ku uvu v uy  tictyc  ytyd h  td u gyuf ytdrtgty tydu tuyfty t yt it yg yty uytrdtdst y tdyt u</p>
+                </div>
+                <!--<div class="flex-item-3-messages-received">
+                    <p>This is the subject of the mail</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, aliquam voluptatem nulla, guy   v hgic hcghck chkgk  uhg k ku uvu  yuiw eeyu rwqoi ug iwq ugio wey yug ceqge ovrwg eg e bwi gv uy  tictyc  ytyd h  td u gyuf ytdrtgty tydu tuyfty t yt it yg yty uytrdtdst y tdyt u</p>
+                </div>-->         
                 <div class="flex-item-3-messages-reply">
-                    <textarea placeholder="Reply" name="sendMsg" id=sendMsg"" cols="80" rows="2"></textarea>
+                    <div>
+                        <textarea placeholder="Reply" name="sendMsg" id="sendMsg" cols="80" rows="3"></textarea>
+                    </div>
                     <button>Send</button>
                 </div>
             </div>
@@ -129,8 +144,15 @@
                 <input type="password" name="" id="" placeholder="New Password">
                 <input type="password" name="" id="" placeholder="Repeat New Password">
 
-                <button type="submit">Save</button>
+                <button id="savePassBtn" type="submit">Save</button>
             </form>
+        </div>
+    </div>
+
+    <div id="savePassModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Password Save Successfully</h2>
         </div>
     </div>
 
