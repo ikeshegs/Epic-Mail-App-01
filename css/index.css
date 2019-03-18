@@ -50,7 +50,7 @@ a {
     .title > h1 {
         font-weight: 700;
         font-size: 3rem;
-        color: #fff;
+        color: #dd579a;
     }
 }
 
@@ -68,7 +68,7 @@ a {
     .title > h1 {
         font-weight: 700;
         font-size: 3rem;
-        color: #fff;
+        color: #dd579a;
     }
     .container {
         margin: 0 auto;
@@ -93,6 +93,7 @@ a {
     #text-change {
         padding-top: 5px;
         font-size: 0.5em;
+        color: #fff;
     }
     input[type=email], [type=password] {
         display: inline-block;

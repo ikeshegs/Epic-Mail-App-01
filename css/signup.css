@@ -5,19 +5,21 @@
 
 body {
     background-color: #393f4d;
-    margin: auto;
+    margin: 0 auto;
 }
 
 h3.title {
-    padding-top: 10px
-}
-
-#text-change {
-    display: none;
+    padding-top: 10px;
 }
 
 @media (max-width: 600px) {
+    body {
+        color: #fff;
+    }
     .bodyImage {
+        padding-top: 20px;
+    }
+    .title-padding-top {
         padding-top: 20px;
     }
 }
@@ -49,6 +51,9 @@ h3.title {
         margin-top: 10px;
         font-size: 2rem;
     }
+    .title-padding-top {
+        padding-top: 20px;
+    }
 }
 
 @media (min-width: 900px) {
@@ -63,16 +68,13 @@ h3.title {
         border-radius: 8px;
     }
     .bodyImage {
-        margin: 20px 40px 30px 40px;
-        
-    }
-    .bodyImage {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) 0% 0%, url(../images/background-image.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         height: 100vh;
         overflow: hidden;
-        padding-top: 100px;
+        padding-top: 10px;
+        margin: 20px 40px 30px 40px;
     }
     input[type=submit] {
         border-radius: 8px;
@@ -92,12 +94,11 @@ h3.title {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) 0% 0% / cover no-repeat, url(../images/background-image.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        height: 100vh;
         overflow: hidden;
-        padding-top: 100px;
     }
     body {
         background-color: #393f4d;
+        margin: 0 auto;
     }
     input[type=submit] {
         border-radius: 8px;
@@ -113,12 +114,23 @@ h3.title {
         margin-top: 10px;
         padding: 20px 80px;
     }
-    .bodyImage {
+    /* .bodyImage {
         margin: 70px 80px 70px 80px;
+    } */
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .wrapper {
+        overflow: hidden;
+        background-color: #f2f2f2;
+        margin: 0 auto;
+        max-width: 550px;
+    }
+    .wrapper-border {
+        border-radius: 8px;
     }
 }
-
-
 
 a {
     color: #dd579a;
@@ -126,65 +138,17 @@ a {
     cursor: pointer;
 }
 
-.wrapper {
-    overflow: hidden;
-    background-color: #f2f2f2;
-    margin: 40px 20px;
-}
-
-.wrapper-border {
-    border-radius: 8px;
-}
-
-#top {
-    top: 90px;
-}
-
 .title {
     text-align: center;
 }
 
-.title > h1 {
-    font-weight: 700;
-    font-size: 3rem;
-    color: #fff;
-}
-
-.title > h1 > strong {
-    color: #dd579a
-}
-
-.title-padding-top {
-    padding-top: 20px;
-}
-
-.title-text {
-    font-family: 'Righteous', cursive;
-    font-weight: 800;
-    font-size: 5rem;
-    line-height: 15px;
-}
-
+/*****FORM STYLE*****/
 .form-padding-bottom {
     padding-bottom: 10px;
 }
 
-/*****FORM STYLE*****/
 form {
     font-size: 0.75rem;
-}
-
-.form-style {
-    padding-left: 20px;
-}
-
-.form-checkbox {
-    padding: 0;
-}
-
-.form-new-account-div {
-    margin-top: 0;
-    padding-top: 0;
 }
 
 .border-outline:focus {
@@ -221,4 +185,3 @@ input[type=checkbox] {
     margin-top: 10px;
     cursor: pointer;
 }
-
