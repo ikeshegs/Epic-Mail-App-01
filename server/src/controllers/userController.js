@@ -2,11 +2,9 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import userModel from '../models/user';
 
-
 const salt = bcrypt.genSaltSync(10);
 class UserController {
   createUser(req, res) {
-
     const findEmail = userModel.find(item => item.email === req.body.email);
     if (findEmail) {
       return res.status(409).json({
@@ -34,7 +32,6 @@ class UserController {
         data: [token]
       });
     }
-
   }
 
   signinUser(req, res) {
@@ -60,7 +57,6 @@ class UserController {
       })
     }                                                                                                                                                                                                                                           
   }
-
 }
 const userController = new UserController();
 
