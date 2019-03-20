@@ -17,12 +17,17 @@ var _messageValidator = _interopRequireDefault(require("../middlewares/messageVa
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable import/no-named-as-default-member */
 // set router
 var router = _express.default.Router(); // User router
 
 
-router.post('/api/v1/auth/signup', _validator.default.signupValidator, _userController.default.createUser);
-router.post('/api/v1/auth/login', _validator.default.loginValidator, _userController.default.signinUser); // Messages
+router.post('/api/v2/auth/signup', _validator.default.signupValidator, _userController.default); // router.post(
+//   '/api/v2/auth/login',
+//   userValidator.loginValidator,
+//   userController.signinUser
+// );
+// Messages
 
 router.post('/api/v1/messages', _messageValidator.default.createMessage, _messageController.default.createMsg);
 router.get('/api/v1/messages', _messageController.default.receiveMsg);
