@@ -2,11 +2,12 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Epic Mail
-  description: Epic Mail App is an application that provides uses with the ability to via emails to their friends and business associates.
+  description: This is a documentation for Epic Mail App
   contact: {}
-host: localhost:3000
+host: epicmail-apps.herokuapp.com
 basePath: /api/v1
 schemes:
+- https
 - http
 consumes:
 - application/json
@@ -16,25 +17,41 @@ paths:
   /auth/signup:
     post:
       description: This endpoint authenticates a user, when they create an account and returns a JWT Token
-      summary: localhost:3000/api/v1/auth/signup
+      summary: https://epicmail-apps.herokuapp.com/api/v1/auth/signup
       tags:
       - Authentication
       operationId: AuthSignupPost
       deprecated: false
       produces:
       - application/json
+      consumes:
+      - application/x-www-form-urlencoded
       parameters:
-      - name: Content-Type
-        in: header
+      - name: firstname
+        in: formData
         required: true
         type: string
         description: ''
-      - name: Body
-        in: body
+      - name: lastname
+        in: formData
         required: true
+        type: string
         description: ''
-        schema:
-          $ref: '#/definitions/localhost%3A3000~1api~1v1~1auth~1signupRequest'
+      - name: email
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: password
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: phone
+        in: formData
+        required: true
+        type: string
+        description: ''
       responses:
         200:
           description: ''
@@ -42,25 +59,26 @@ paths:
   /auth/login:
     post:
       description: This endpoint authenticates the user on login and returns a JWT Token
-      summary: localhost:3000/api/v1/auth/login
+      summary: https://epicmail-apps.herokuapp.com/api/v1/auth/login
       tags:
       - Authentication
       operationId: AuthLoginPost
       deprecated: false
       produces:
       - application/json
+      consumes:
+      - application/x-www-form-urlencoded
       parameters:
-      - name: Content-Type
-        in: header
+      - name: email
+        in: formData
         required: true
         type: string
         description: ''
-      - name: Body
-        in: body
+      - name: password
+        in: formData
         required: true
+        type: string
         description: ''
-        schema:
-          $ref: '#/definitions/localhost%3A3000~1api~1v1~1auth~1loginRequest'
       responses:
         200:
           description: ''
@@ -68,7 +86,7 @@ paths:
   /messages:
     post:
       description: This endpoint creates a new message and sends it to the receiver, and returns an object in an array
-      summary: localhost:3000/api/v1/messages
+      summary: https://epicmail-apps.herokuapp.com/api/v1/messages
       tags:
       - Messages
       operationId: MessagesPost
@@ -76,24 +94,19 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
       - name: Body
         in: body
         required: true
         description: ''
         schema:
-          $ref: '#/definitions/localhost%3A3000~1api~1v1~1messagesRequest'
+          $ref: '#/definitions/https%3A~1~1epicmail-apps.herokuapp.com~1api~1v1~1messagesRequest'
       responses:
         200:
           description: ''
           headers: {}
     get:
       description: This endpoint gets all received messages and returns an object in an array
-      summary: localhost:3000/api/v1/messages
+      summary: https://epicmail-apps.herokuapp.com/api/v1/messages
       tags:
       - Messages
       operationId: MessagesGet
@@ -108,7 +121,7 @@ paths:
   /messages/unread:
     get:
       description: This endpoint gets all unread messages, and returns an object in an array
-      summary: localhost:3000/api/v1/messages/unread
+      summary: https://epicmail-apps.herokuapp.com/api/v1/messages/unread
       tags:
       - Messages
       operationId: MessagesUnreadGet
@@ -123,7 +136,7 @@ paths:
   /messages/sent:
     get:
       description: This endpoint gets all sent messages, and returns an object in an array
-      summary: localhost:3000/api/v1/messages/sent
+      summary: https://epicmail-apps.herokuapp.com/api/v1/messages/sent
       tags:
       - Messages
       operationId: MessagesSentGet
@@ -138,7 +151,7 @@ paths:
   /messages/3:
     get:
       description: This endpoint filters all emails and returns a specific email using the supplied id which returns an object in an array
-      summary: localhost:3000/api/v1/messages/3
+      summary: https://epicmail-apps.herokuapp.com/api/v1/messages/3
       tags:
       - Messages
       operationId: Messages3Get
@@ -152,7 +165,7 @@ paths:
           headers: {}
     delete:
       description: This deletes a selected email from the inbox using the id, returns a status and a message
-      summary: localhost:3000/api/v1/messages/3
+      summary: https://epicmail-apps.herokuapp.com/api/v1/messages/3
       tags:
       - Messages
       operationId: Messages3Delete
@@ -170,48 +183,8 @@ paths:
           description: ''
           headers: {}
 definitions:
-  localhost:3000/api/v1/auth/signupRequest:
-    title: localhost:3000/api/v1/auth/signupRequest
-    example:
-      firstname: Ikechuwu
-      lastname: okoro
-      email: andela@epic.com
-      password: test
-      phone: 08056415165
-    type: object
-    properties:
-      firstname:
-        type: string
-      lastname:
-        type: string
-      email:
-        type: string
-      password:
-        type: string
-      phone:
-        type: string
-    required:
-    - firstname
-    - lastname
-    - email
-    - password
-    - phone
-  localhost:3000/api/v1/auth/loginRequest:
-    title: localhost:3000/api/v1/auth/loginRequest
-    example:
-      email: andela@epic.com
-      password: test
-    type: object
-    properties:
-      email:
-        type: string
-      password:
-        type: string
-    required:
-    - email
-    - password
-  localhost:3000/api/v1/messagesRequest:
-    title: localhost:3000/api/v1/messagesRequest
+  https://epicmail-apps.herokuapp.com/api/v1/messagesRequest:
+    title: https://epicmail-apps.herokuapp.com/api/v1/messagesRequest
     example:
       subject: tahjnk
       message: agwkrgbrljbvavnd iuavjnlarvnkjrlvn l

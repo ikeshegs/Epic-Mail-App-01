@@ -1,37 +1,28 @@
+// import { Pool } from 'pg';
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'epic-mail',
+//   password: 'C00ljoe.',
+//   port: 5432
+// });
+// export default {
+//   /**
+//    * @param {object}
+//    * @param {object}
+//    * @returns { object }
+//    */
+//   query(text, params){
+//     return new Promise((resolve, reject) => {
+//       pool
+//       .query(text, params)
+//       .then((res) => {
+//         resolve(res);
+//       })
+//       .catch((err) => {
+//         reject(err);
+//       })
+//     })
+//   };
+// }
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var User = [{
-  id: 1,
-  email: 'ikeshegs@epic.com',
-  firstname: 'Ikechukwu',
-  lastname: 'Okoro',
-  password: 'C00ljoe.',
-  phone: '08138891291'
-}, {
-  id: 2,
-  email: 'chiokro@epic.com',
-  firstname: 'Chioma',
-  lastname: 'Okoro',
-  password: 'chioma',
-  phone: '08026548946'
-}, {
-  id: 3,
-  email: 'nkem@epic.com',
-  firstname: 'Nkem',
-  lastname: 'Nnadi',
-  password: 'ghosts',
-  phone: '08087789983'
-}, {
-  id: 4,
-  email: 'cliff@epic.com',
-  firstname: 'Cliff',
-  lastname: 'Okoro',
-  password: 'cliff',
-  phone: '07060538862'
-}];
-var _default = User;
-exports.default = _default;

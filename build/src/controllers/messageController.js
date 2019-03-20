@@ -5,9 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _message = _interopRequireDefault(require("../models/message"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _pg = require("pg");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24,43 +22,42 @@ function () {
 
   _createClass(MessageController, [{
     key: "createMsg",
+    // eslint-disable-next-line class-methods-use-this
     value: function createMsg(req, res) {
       // Create Message
       var messageContent = {
-        id: _message.default.length + 1,
+        id: messageModel.length + 1,
         createdOn: new Date(),
         subject: req.body.subject,
         message: req.body.message,
         parentMessageId: req.body.parentMessageId,
         status: req.body.status
       };
-
-      _message.default.push(messageContent);
-
+      messageModel.push(messageContent);
       return res.status(201).send({
         status: 200,
         data: [messageContent]
       });
-    }
+    } // eslint-disable-next-line class-methods-use-this
+
   }, {
     key: "receiveMsg",
     value: function receiveMsg(req, res) {
-      var filterReceivedMsgs = _message.default.filter(function (item) {
+      var filterReceivedMsgs = messageModel.filter(function (item) {
         return item.status === 'inbox';
       });
-
       return res.status(200).send({
         status: 200,
         data: [filterReceivedMsgs]
       });
-    }
+    } // eslint-disable-next-line class-methods-use-this
+
   }, {
     key: "sentMsg",
     value: function sentMsg(req, res) {
-      var filterSentMsgs = _message.default.filter(function (item) {
+      var filterSentMsgs = messageModel.filter(function (item) {
         return item.status === 'sent';
       });
-
       return res.status(200).send({
         status: 200,
         data: [filterSentMsgs]
@@ -69,10 +66,9 @@ function () {
   }, {
     key: "unreadMsg",
     value: function unreadMsg(req, res) {
-      var filterUnreadMsgs = _message.default.filter(function (item) {
+      var filterUnreadMsgs = messageModel.filter(function (item) {
         return item.status === 'unread';
       });
-
       return res.status(200).send({
         status: 200,
         data: [filterUnreadMsgs]
@@ -82,11 +78,9 @@ function () {
     key: "specificEmail",
     value: function specificEmail(req, res) {
       var emailId = Number(req.params.id);
-
-      var filterSpecificEmail = _message.default.filter(function (u) {
+      var filterSpecificEmail = messageModel.filter(function (u) {
         return u.id === emailId;
       });
-
       console.log(filterSpecificEmail);
       return res.status(200).send({
         status: 200,
@@ -97,11 +91,9 @@ function () {
     key: "deleteFromInbox",
     value: function deleteFromInbox(req, res) {
       var emailId = Number(req.params.id);
-
-      var filterInboxEmail = _message.default.filter(function (item) {
+      var filterInboxEmail = messageModel.filter(function (item) {
         return item.status === 'inbox';
       });
-
       var deleteEmail = filterInboxEmail.find(function (messages) {
         return messages.id === emailId;
       });

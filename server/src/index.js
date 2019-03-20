@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import 'babel-polyfill';
 import cors from 'cors';
 import yaml from 'yamljs';
 import swagger from 'swagger-ui-express';
@@ -20,11 +21,10 @@ app.use(router);
 
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerDoc));
 
-
 app.get('/', (req, res) => {
   return res
     .status(200)
-    .send('Welcome to Epic Mail App. A Email messaging platform');
+    .send('Welcome to Epic Mail App. An Email messaging App platform. :)');
 });
 
 const PORT = process.env.PORT || 3000;
