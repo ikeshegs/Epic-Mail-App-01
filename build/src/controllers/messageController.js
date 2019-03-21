@@ -7,11 +7,25 @@ exports.default = void 0;
 
 var _pg = require("pg");
 
+var _v = _interopRequireDefault(require("uuid/v4"));
+
+var _moment = _interopRequireDefault(require("moment"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var pool = new _pg.Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'epic-mail',
+  password: 'C00ljoe.',
+  port: 5432
+});
 
 var MessageController =
 /*#__PURE__*/
@@ -25,18 +39,35 @@ function () {
     // eslint-disable-next-line class-methods-use-this
     value: function createMsg(req, res) {
       // Create Message
-      var messageContent = {
-        id: messageModel.length + 1,
-        createdOn: new Date(),
+      var id = (0, _v.default)();
+      var newMessage = {
+        id: id,
         subject: req.body.subject,
         message: req.body.message,
-        parentMessageId: req.body.parentMessageId,
-        status: req.body.status
+        createdOn: (0, _moment.default)(new Date()),
+        status: req.body.status,
+        parentMessageId: id
       };
-      messageModel.push(messageContent);
-      return res.status(201).send({
-        status: 200,
-        data: [messageContent]
+      var query = {
+        text: 'INSERT INTO message (id, subject, message, createdOn, parentMessageId, status) VALUES ($1, $2, $3, $4, $5, $6) returning *',
+        values: [newMessage.id, newMessage.subject, newMessage.message, newMessage.createdOn, newMessage.status, newMessage.parentMessageId]
+      }; // console.log(newMessage.parentMessageId);
+
+      pool.query(query, function (data, error) {
+        if (data) {
+          console.log(data);
+          return res.status(201).send({
+            status: 201,
+            data: [{
+              id: data.id
+            }]
+          });
+        }
+
+        return res.status(400).send({
+          status: 400,
+          message: 'Bad request'
+        });
       });
     } // eslint-disable-next-line class-methods-use-this
 

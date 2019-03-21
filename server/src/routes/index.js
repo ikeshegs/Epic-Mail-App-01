@@ -1,6 +1,7 @@
 /* eslint-disable import/no-named-as-default-member */
 import express from 'express';
-import createUser from '../controllers/userController';
+// eslint-disable-next-line import/named
+import { createUser, login } from '../controllers/userController';
 import messageController from '../controllers/messageController';
 import userValidator from '../middlewares/validator';
 import messageValidator from '../middlewares/messageValidator';
@@ -10,14 +11,10 @@ const router = express.Router();
 
 // User router
 router.post('/api/v2/auth/signup', userValidator.signupValidator, createUser);
-// router.post(
-//   '/api/v2/auth/login',
-//   userValidator.loginValidator,
-//   userController.signinUser
-// );
-// Messages
+router.post('/api/v2/auth/login', userValidator.loginValidator, login);
+
 router.post(
-  '/api/v1/messages',
+  '/api/v2/messages',
   messageValidator.createMessage,
   messageController.createMsg
 );

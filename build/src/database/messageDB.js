@@ -30,7 +30,7 @@ pool.on('error', function (err) {
 });
 
 var createMessageTable = function createMessageTable() {
-  var queryMessage = "CREATE TABLE IF NOT EXISTS\n      message(\n        id UUID PRIMARY KEY,\n        createdOn TIMESTAMP,\n        subject CHAR(128) NOT NULL,\n        message VARCHAR NOT NULL,\n        senderId INT NOT NULL,\n        receiverId INT NOT NULL,\n        parentMessengeId INT,\n        modifiedOn TIMESTAMP,\n        groupID INT\n      )";
+  var queryMessage = "CREATE TABLE IF NOT EXISTS\n      message(\n        id UUID PRIMARY KEY,\n        createdOn TIMESTAMP,\n        subject CHAR(128) NOT NULL,\n        message VARCHAR NOT NULL,\n        senderId UUID REFERENCES users(id),\n        receiverId UUID REFERENCES users(id),\n        parentMessageId UUID,\n        modifiedOn TIMESTAMP,\n        groupID UUID,\n        status CHAR(10)\n      )";
   pool.query(queryMessage).then(function (res) {
     console.log(res);
     pool.end();

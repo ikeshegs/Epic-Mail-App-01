@@ -4,12 +4,16 @@ import dotenv from 'dotenv';
 const { Pool } = pg;
 dotenv.config();
 
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'epic-mail',
+//   password: 'C00ljoe.',
+//   port: 5432
+// });
+
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'epic-mail',
-  password: 'C00ljoe.',
-  port: 5432
+  connectionString: process.env.DATABASE_URL_PROD
 });
 
 pool.on('connect', () => {
@@ -27,11 +31,12 @@ const createMessageTable = () => {
         createdOn TIMESTAMP,
         subject CHAR(128) NOT NULL,
         message VARCHAR NOT NULL,
-        senderId INT NOT NULL,
-        receiverId INT NOT NULL,
-        parentMessengeId INT,
+        senderId UUID REFERENCES users(id),
+        receiverId UUID REFERENCES users(id),
+        parentMessageId UUID,
         modifiedOn TIMESTAMP,
-        groupID INT
+        groupID UUID,
+        status CHAR(10)
       )`;
   pool
     .query(queryMessage)

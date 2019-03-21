@@ -17,7 +17,8 @@ const pool = new Pool({
 
 const salt = bcrypt.genSaltSync(10);
 
-const createUser = (req, res) => {
+// User Signup Function
+const createUser = (req, res) => {signup
   const hash = bcrypt.hashSync(req.body.password, salt);
   const result = {
     id: uuidv4(),
@@ -28,7 +29,7 @@ const createUser = (req, res) => {
     phone: req.body.phone,
     createdOn: moment(new Date()),
     modifiedOn: moment(new Date())
-  }
+  };
   const query = {
     text:
       'INSERT INTO users (id, firstname, lastname, email, password, phone, createdOn, modifiedOn) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *',
@@ -72,34 +73,92 @@ const createUser = (req, res) => {
   });
 };
 
+// User Login Function
+const login = (req, res) => {
+  const result = {
+    email: req.body.email,
+    password: req.body.password
+  };
+  const queryUser = {
+    text: 'SELECT * FROM users WHERE email=$1;',
+    values: [result.email]
+  };
+  // pool.query(queryUser).then(() => {
+  //   const isPass = bcrypt.compareSync(result.password, data.rows[0].password)
+  // });
+  pool.query(queryUser, (error, data) => {
+    if (data) {
+      // console.log(data.rows[0])
+      const isPass = bcrypt.compareSync(result.password, data.rows[0].password);
+      if (isPass) {
+        return res.status(200).send({
+          status: 200,
+          data: [data.rows[0].id]
+        });
+      }
+      // const token = jwt.sign(
+      //   {
+      //     email: data.email
+      //   },
+      //   process.env.JWT_KEY,
+      //   {
+      //     expiresIn: '1h'
+      //   }
+      // );
+      if (error) {
+        return res.status(400).send({
+          status: 400,
+          message: 'User not in Database'
+        });
+      }
+      return res.status(401).send({
+        message: 'Invalid login details'
+      });
+    }
+    return res.status(401).send({
+      status: 401,
+      error: 'Invalid Login Details'
+    });
+  });
+};
 
-  // eslint-disable-next-line class-methods-use-this
-  // signinUser(req, res) {
-  //   const user = userDB.find(item => item.email === req.body.email);
-  //   if (user) {
-  //     bcrypt.compareSync(req.body.password, user.password);
-  //     const token = jwt.sign(
-  //       {
-  //         email: user.email
-  //       },
-  //       'secretkey',
-  //       {
-  //         expiresIn: '1h'
-  //       }
-  //     );
-  //     return res.status(200).json({
-  //       status: 200,
-  //       data: [token]
-  //     });
-  //   }
-  //   return res.status(401).json({
-  //     status: 401,
-  //     error: "User doesn't exist"
-  //   });
-  // }
+//   return res.status(200).send({
+//     status: 200,
+//     data: [user.rows[0].id]
+//   });
 
+// if (!.rows[0].password === req.body.password) {
+//   return res.status(400).send({
+//     status: 400,
+//     message: 'Invalid user input'
+//   });
+// }
+//   return res.status(400).send({
+//     status: 400,
+//     message: 'User Authentication failed',
+//     data: [error]
+//   });
+// });
+// if (user) {
+//   bcrypt.compareSync(req.body.password, user.password);
+//   const token = jwt.sign(
+//     {
+//       email: user.email
+//     },
+//     'secretkey',
+//     {
+//       expiresIn: '1h'
+//     }
+//   );
+//   return res.status(200).json({
+//     status: 200,
+//     data: [token]
+//   });
+// }
+// return res.status(401).json({
+//   status: 401,
+//   error: "User doesn't exist"
+// });
+// };
 
-// const userController = new UserController();
-
-//export default userController;
-export default createUser;
+export { createUser, login };

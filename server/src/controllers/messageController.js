@@ -1,23 +1,65 @@
 /* eslint-disable class-methods-use-this */
 import { Pool } from 'pg';
+import uuidv4 from 'uuid/v4';
+import moment from 'moment';
+
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'epic-mail',
+  password: 'C00ljoe.',
+  port: 5432
+});
 
 class MessageController {
   // eslint-disable-next-line class-methods-use-this
   createMsg(req, res) {
     // Create Message
-    const messageContent = {
-      id: messageModel.length + 1,
-      createdOn: new Date(),
+    const id = uuidv4();
+    const newMessage = {
+      id,
       subject: req.body.subject,
       message: req.body.message,
-      parentMessageId: req.body.parentMessageId,
-      status: req.body.status
+      createdOn: moment(new Date()),
+      status: req.body.status,
+      parentMessageId: id
     };
 
-    messageModel.push(messageContent);
-    return res.status(201).send({
-      status: 200,
-      data: [messageContent]
+    const query = {
+      text:
+        'INSERT INTO message (id, subject, message, createdOn, parentMessageId, status) VALUES ($1, $2, $3, $4, $5, $6) returning *',
+      values: [
+        newMessage.id,
+        newMessage.subject,
+        newMessage.message,
+        moment(new Date()),
+        newMessage.status,
+        newMessage.parentMessageId
+      ]
+    };
+    // console.log(query)
+    pool.query(query, (error, data) => {
+      console.log(data);
+      // if (!data) {
+      //   return res.status(400).send({
+      //     status: 400,
+      //     message: 'Bad request'
+      //   });
+      // }
+      if (error) {
+        return res.status(404).send({
+          status: 404,
+          error
+        });
+      }
+      return res.status(201).send({
+        status: 201,
+        data: [
+          {
+            id: data.id
+          }
+        ]
+      });
     });
   }
 
