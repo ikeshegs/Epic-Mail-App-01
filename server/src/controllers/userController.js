@@ -18,7 +18,7 @@ const pool = new Pool({
 const salt = bcrypt.genSaltSync(10);
 
 // User Signup Function
-const createUser = (req, res) => {signup
+const createUser = (req, res) => {
   const hash = bcrypt.hashSync(req.body.password, salt);
   const result = {
     id: uuidv4(),
