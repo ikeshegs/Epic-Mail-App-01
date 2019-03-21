@@ -50,23 +50,29 @@ function () {
       };
       var query = {
         text: 'INSERT INTO message (id, subject, message, createdOn, parentMessageId, status) VALUES ($1, $2, $3, $4, $5, $6) returning *',
-        values: [newMessage.id, newMessage.subject, newMessage.message, newMessage.createdOn, newMessage.status, newMessage.parentMessageId]
-      }; // console.log(newMessage.parentMessageId);
+        values: [newMessage.id, newMessage.subject, newMessage.message, (0, _moment.default)(new Date()), newMessage.status, newMessage.parentMessageId]
+      }; // console.log(query)
 
-      pool.query(query, function (data, error) {
-        if (data) {
-          console.log(data);
-          return res.status(201).send({
-            status: 201,
-            data: [{
-              id: data.id
-            }]
+      pool.query(query, function (error, data) {
+        console.log(data); // if (!data) {
+        //   return res.status(400).send({
+        //     status: 400,
+        //     message: 'Bad request'
+        //   });
+        // }
+
+        if (error) {
+          return res.status(404).send({
+            status: 404,
+            error: error
           });
         }
 
-        return res.status(400).send({
-          status: 400,
-          message: 'Bad request'
+        return res.status(201).send({
+          status: 201,
+          data: [{
+            id: data.id
+          }]
         });
       });
     } // eslint-disable-next-line class-methods-use-this

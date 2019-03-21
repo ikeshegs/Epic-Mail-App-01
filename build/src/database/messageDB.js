@@ -13,14 +13,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Pool = _pg.default.Pool;
 
-_dotenv.default.config();
+_dotenv.default.config(); // const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'epic-mail',
+//   password: 'C00ljoe.',
+//   port: 5432
+// });
+
 
 var pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'epic-mail',
-  password: 'C00ljoe.',
-  port: 5432
+  connectionString: process.env.DATABASE_URL_PROD
 });
 pool.on('connect', function () {
   console.log('connected to the database');

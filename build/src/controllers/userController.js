@@ -33,6 +33,8 @@ var salt = _bcryptjs.default.genSaltSync(10); // User Signup Function
 
 
 var createUser = function createUser(req, res) {
+  signup;
+
   var hash = _bcryptjs.default.hashSync(req.body.password, salt);
 
   var result = {
@@ -89,50 +91,50 @@ var login = function login(req, res) {
     password: req.body.password
   };
   var queryUser = {
-    text: 'SELECT * FROM users WHERE email = $1;',
+    text: 'SELECT * FROM users WHERE email=$1;',
     values: [result.email]
-  };
-  console.log(queryUser.text);
-  pool.query(queryUser).then(function () {
-    var isPass = _bcryptjs.default.compareSync(result.password);
-  }); // pool.query(query, (error, data) => {
-  //   if (data) {
-  //     // console.log('req', req.body.password);
-  //     // console.log('data', data.rows[0].password);
-  //     const isPass = bcrypt.compareSync(
-  //       req.body.password,
-  //       data.rows[0].password
-  //     );
-  //     if (isPass) {
-  //       console.log(isPass);
-  //       return res.status(401).send({
-  //         message: 'Invalid login details'
-  //       });
-  //     }
-  //     // const token = jwt.sign(
-  //     //   {
-  //     //     email: data.email
-  //     //   },
-  //     //   process.env.JWT_KEY,
-  //     //   {
-  //     //     expiresIn: '1h'
-  //     //   }
-  //     // );
-  //     if (error) {
-  //       return res.status(400).send({
-  //         status: 400,
-  //         message: 'User not in Database'
-  //       });
-  //     }
-  //     return res.status(200).send({
-  //       status: 200
-  //     });
-  //   }
-  //   return res.status(401).send({
-  //     status: 401,
-  //     error: 'Invalid Login Details'
-  //   });
+  }; // pool.query(queryUser).then(() => {
+  //   const isPass = bcrypt.compareSync(result.password, data.rows[0].password)
   // });
+
+  pool.query(queryUser, function (error, data) {
+    if (data) {
+      // console.log(data.rows[0])
+      var isPass = _bcryptjs.default.compareSync(result.password, data.rows[0].password);
+
+      if (isPass) {
+        return res.status(200).send({
+          status: 200,
+          data: [data.rows[0].id]
+        });
+      } // const token = jwt.sign(
+      //   {
+      //     email: data.email
+      //   },
+      //   process.env.JWT_KEY,
+      //   {
+      //     expiresIn: '1h'
+      //   }
+      // );
+
+
+      if (error) {
+        return res.status(400).send({
+          status: 400,
+          message: 'User not in Database'
+        });
+      }
+
+      return res.status(401).send({
+        message: 'Invalid login details'
+      });
+    }
+
+    return res.status(401).send({
+      status: 401,
+      error: 'Invalid Login Details'
+    });
+  });
 }; //   return res.status(200).send({
 //     status: 200,
 //     data: [user.rows[0].id]
