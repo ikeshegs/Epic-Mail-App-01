@@ -8,11 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'epic-mail',
-  password: 'C00ljoe.',
-  port: 5432
+  connectionString: process.env.DATABASE_URL_PROD
 });
 
 const salt = bcrypt.genSaltSync(10);
