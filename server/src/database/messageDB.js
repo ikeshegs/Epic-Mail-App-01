@@ -13,7 +13,7 @@ dotenv.config();
 // });
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL_PROD
+  connectionString: process.env.DATABASE_URL_DEV
 });
 
 pool.on('connect', () => {

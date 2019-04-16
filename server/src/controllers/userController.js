@@ -1,3 +1,4 @@
+// import bcrypt from 'bcrypt-nodejs';
 import bcrypt from 'bcryptjs';
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
@@ -8,7 +9,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL_PROD
+  connectionString: process.env.DATABASE_URL_DEV
 });
 
 const salt = bcrypt.genSaltSync(10);
@@ -40,6 +41,7 @@ const createUser = (req, res) => {
       moment(new Date())
     ]
   };
+
   const token = jwt.sign(
     {
       id: result.id,
@@ -71,27 +73,33 @@ const createUser = (req, res) => {
 
 // User Login Function
 const login = (req, res) => {
+  const hash = bcrypt.hashSync(req.body.password, salt);
   const result = {
     email: req.body.email,
-    password: req.body.password
+    password: hash
   };
   const queryUser = {
-    text: 'SELECT * FROM users WHERE email=$1;',
+    text: 'SELECT * FROM users WHERE email = $1;',
     values: [result.email]
   };
-  // pool.query(queryUser).then(() => {
-  //   const isPass = bcrypt.compareSync(result.password, data.rows[0].password)
-  // });
   pool.query(queryUser, (error, data) => {
     if (data) {
-      // console.log(data.rows[0])
-      const isPass = bcrypt.compareSync(result.password, data.rows[0].password);
-      if (isPass) {
-        return res.status(200).send({
-          status: 200,
-          data: [data.rows[0].id]
+      // console.log(data.rows[0].password);
+      // console.log(result.password);
+      const isPass = bcrypt.compareSync(result.hash, data.rows[0].password);
+      console.log(isPass);
+      console.log(hash);
+      console.log(data.rows[0].password);
+      if (!isPass) {
+        return res.status(401).send({
+          status: 401,
+          error: 'Invalid Login Details'
         });
       }
+      return res.status(200).send({
+        status: 200,
+        data: [data.rows[0].id]
+      });
       // const token = jwt.sign(
       //   {
       //     email: data.email
@@ -101,19 +109,13 @@ const login = (req, res) => {
       //     expiresIn: '1h'
       //   }
       // );
-      if (error) {
-        return res.status(400).send({
-          status: 400,
-          message: 'User not in Database'
-        });
-      }
-      return res.status(401).send({
-        message: 'Invalid login details'
-      });
+      // return res.status(401).send({
+      //   message: 'Invalid login details'
+      // });
     }
-    return res.status(401).send({
-      status: 401,
-      error: 'Invalid Login Details'
+    return res.status(400).send({
+      status: 400,
+      message: 'User not in Database'
     });
   });
 };

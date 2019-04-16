@@ -4,12 +4,15 @@ import dotenv from 'dotenv';
 const { Pool } = pg;
 dotenv.config();
 
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'epic-mail',
+//   password: 'C00ljoe.',
+//   port: 5432
+// });
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'epic-mail',
-  password: 'C00ljoe.',
-  port: 5432
+  connectionString: process.env.DATABASE_URL_DEV
 });
 
 pool.on('connect', () => {

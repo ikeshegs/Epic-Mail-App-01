@@ -3,12 +3,15 @@ import { Pool } from 'pg';
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'epic-mail',
+//   password: 'C00ljoe.',
+//   port: 5432
+// });
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'epic-mail',
-  password: 'C00ljoe.',
-  port: 5432
+  connectionString: process.env.DATABASE_URL_DEV
 });
 
 class MessageController {
